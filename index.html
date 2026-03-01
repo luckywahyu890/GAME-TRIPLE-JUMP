@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Game</title>
+</head>
+<style>
+  *{
+    margin:0;
+    padding: 0;
+    background-color: #222;
+    overflow:hidden;
+    touch-action:none
+  }
+  #wrap2{
+    display: flex;
+    justify-content: space-around;
+    background-color: #111;
+    padding: 10px;
+    border-bottom: 2px solid black;
+  }
+  #wrap{
+    display: none;
+  }
+  #lv{
+    padding: 5px ;
+    border-radius: 15px;
+    font-size:21px;
+    font-weight:bold;
+    color : white;
+    background-color: green;
+    user-select: none;
+    box-shadow: 0 1px 1px white
+  }
+  #rpt{
+    padding: 5px;
+    border-radius: 15px;
+    font-size:21px;
+    font-weight:bold;
+    color : #111;
+    background-color: #eee;
+    user-select: none;
+    box-shadow: 0 1px 1px white
+  }
+  #inf{
+    padding: 5px;
+    border-radius: 60% 0 60% 0;
+    font-size:15px;
+    font-weight:bold;
+    color : white;
+    user-select: none;
+    transform: rotate(-5deg);
+    background: linear-gradient(to right, red, blue);
+  }
+  #infoJump{
+    font-size:35px;
+    color :gold;
+    font-weight:bolder;
+    font-family: Monospace;
+    position: absolute;
+    background-color: transparent;
+    transform: translate(-50%, -50%) rotate(-10deg);
+    top : 50%;
+    left : 50%;
+    text-shadow:1px 1px 1px white, 2px 2px 1px blue, 4px 4px 4px red;
+    user-select:none;
+  }
+  
+  #menu{
+    display: flex;
+    flex-direction: column;
+    gap:8px;
+    font-size:31px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top:50%;
+    left:50%;
+    user-select: none;
+  }
+  #menu > div{
+    background-color: black;
+    padding:10px 28px;
+    min-width: 200px;
+    font-weight:bolder;
+    color:#ccc;
+    border-radius:20px 0 20px 0;
+    border:1px solid #eee;
+    border-left:3px solid lime;
+  }
+  #menu > div:active{
+    transform: scale(0.98) translateX(12px);
+    color:white;
+  }
+  #menuFree {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 7px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+    top:50%;
+    left:50%;
+    user-select: none;
+    background-color: green;
+    padding: 28px;
+    border-left:30px solid black;
+  }
+  .btn{
+    background-color: black;
+    width:100px;
+    height:55px;
+    font-weight: bold;
+    color:#bbb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:1px solid #bbb;
+    border-radius:30px 0 30px 0;
+  }
+  .btn:active{
+    transform: scale(0.93);
+    color:white;
+  }
+  #barFree{
+    display: none;
+    display: flex;
+    gap :50px;
+    background-color: black;
+    border-bottom: 1px solid lime;
+  }
+  .jrk{
+    display: none;
+    color:white;
+    font-weight:bolder;
+    font-size:15px;
+    padding: 10px;
+    background-color: transparent;
+  }
+    #infoHelp {
+      display: none;
+  position: absolute;
+  transform: translate(-50%, -50%);
+    top:50%;
+    left:50%;
+    width:70%;
+    user-select: none;
+    background-color: green;
+    padding: 28px;
+    border-left:3px solid yellow;
+    color:white;
+    font-family:Monospace;
+    font-weight:bolder
+  }
+    #back {
+      display: none;
+  position: absolute;
+  transform: translate(-50%, -50%);
+    bottom:10%;
+    left:15%;
+    width : 87px;
+    height : 25px;
+    user-select: none;
+    background-color: red;
+    padding: 5px;
+    color:white;
+    font-family:Monospace;
+    font-weight:bolder;
+    font-size:21px;
+    border-radius:5px
+  }
+</style>
+<body>
+<div id="wrap">
+  <div id="wrap2">
+    <div id="inf">TRIPLE JUMP</div>
+    <div id="lv">LEVEL : 1</div>
+    <div id="rpt">Repeat : 0</div>
+  </div>
+</div>
+<div id = "menu">
+  <div id="misi">MISI</div>
+  <div id="free">FREE</div>
+  <div id="help">HELP</div>
+</div>
+<div id="menuFree"></div>
+<div id="barFree">
+  <div id="jarak" class="jrk">Distance : 0</div>
+  <div id="jarakTerbaik" class="jrk">Best distance : 0</div>
+</div>
+<div id="infoHelp">Rilis 1 Maret 2026 di Github<br><br>CARA BERMAIN<br>==============<br>Anda diberi 3 kali kesempatan untuk melompat dan saat player terkena lantai/kubus maka kesempatan melompat akan direset menjadi 3 kali<br><br>@copyRight Lucky wahyu</div>
+<div id="back">kembali</div>
+<div id="infoJump"></div>
+<canvas id="canvas"></canvas>./
+<script src="./AdivaClient.js"></script>
+<script src="./AdivaServer.js"></script>
+<script src="./sceneA.js"></script>
+<script src="./sceneB.js"></script>
+<script src="./sceneC.js"></script>
+<script src="./sceneD.js"></script>
+<script src="./sceneE.js"></script>
+<script src="./sceneI.js"></script>
+<script src="sceneJ.js"></script>
+<script src="./scene0.js"></script>
+<script src="./scene1.js"></script>
+<script src="./scene2.js"></script>
+<script src="./scene3.js"></script>
+<script src="./scene4.js"></script>
+<script src="./menu.js"></script>
+<script src="./main.js"></script>
+
+</body>
+</html>
